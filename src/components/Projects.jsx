@@ -11,6 +11,11 @@ import {
 } from "react-icons/si";
 import { Briefcase } from "lucide-react";
 
+// ✅ Import images directly from src/assets
+import HealFit from "../assets/HealFit.png";
+import SmartInventory from "../assets/SmartInventory.png";
+import Oxicare from "../assets/Oxicare.png";
+
 const iconMap = {
   MongoDB: <SiMongodb className="text-green-500" />,
   Express: <SiExpress className="text-gray-300" />,
@@ -23,8 +28,8 @@ const projects = [
   {
     title: "HealFit App",
     description:
-      "A fitness matching app with real-time database and video library, built using MERN stack.",
-    image: "/fitness.png",
+      "A fitness matching app with real-time database and video library, built using the MERN stack.",
+    image: HealFit,
     link: "https://github.com/ParnandiVarun/HealFit",
     demo: "https://heal-fit-ys7g.vercel.app/",
     stack: ["React", "Node.js", "Express", "MongoDB"],
@@ -33,14 +38,23 @@ const projects = [
     title: "Smart Inventory Management System",
     description:
       "A comprehensive inventory management system that allows users to track and manage their inventory in real-time. Built using the MERN stack.",
-    image: "/teamcollab.png",
+    image: SmartInventory,
     link: "https://github.com/ParnandiVarun/Smart_Inventory",
     demo: "https://smart-inventory-red.vercel.app/",
     stack: ["React", "Firebase"],
   },
+  {
+    title: "Oxicare Health",
+    description:
+      "A healthcare platform that connects patients with doctors for online consultations and health management. Built using the MERN stack.",
+    image: Oxicare,
+    link: "https://github.com/ParnandiVarun/Oxicare_Health",
+    demo: "https://oxicare-health.vercel.app/",
+    stack: ["React", "Node.js", "Express", "MongoDB"],
+  },
 ];
 
-const allStacks = [...new Set(projects.flatMap((p) => p.stack))];
+const allStacks = ["All", ...new Set(projects.flatMap((p) => p.stack))];
 
 const Projects = () => {
   const [selectedStack, setSelectedStack] = useState("All");
@@ -56,7 +70,7 @@ const Projects = () => {
     >
       <div className="container mx-auto px-6 text-center">
         <motion.h2
-          className="text-4xl font-bold mb-4 flex items-center justify-center gap-3"
+          className="text-4xl font-bold mb-4 flex items-center justify-center gap-3 text-white"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -65,17 +79,8 @@ const Projects = () => {
           Projects
         </motion.h2>
 
+        {/* Tech Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
-          <button
-            className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-              selectedStack === "All"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-700 text-white hover:bg-blue-600"
-            }`}
-            onClick={() => setSelectedStack("All")}
-          >
-            All
-          </button>
           {allStacks.map((stack) => (
             <button
               key={stack}
@@ -91,6 +96,7 @@ const Projects = () => {
           ))}
         </div>
 
+        {/* Project Cards */}
         <div className="grid md:grid-cols-2 gap-8">
           {filteredProjects.map((project, idx) => (
             <motion.div
@@ -118,7 +124,7 @@ const Projects = () => {
                 {project.description}
               </motion.p>
 
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-4 justify-center">
                 {project.stack.map((tech) => (
                   <motion.span
                     key={tech}
@@ -127,23 +133,18 @@ const Projects = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <span className="relative">
-                      {iconMap[tech] || null}
-                      <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                        {tech}
-                      </span>
-                    </span>
+                    {iconMap[tech]}
                     {tech}
                   </motion.span>
                 ))}
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex justify-center gap-6">
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-400 hover:underline text-sm md:text-base"
+                  className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-500 transition text-sm md:text-base"
                 >
                   <FaGithub /> View Code
                 </a>
@@ -151,7 +152,7 @@ const Projects = () => {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-green-400 hover:underline text-sm md:text-base"
+                  className="inline-flex items-center gap-2 text-green-400 hover:text-green-500 transition text-sm md:text-base"
                 >
                   <FaExternalLinkAlt /> Live Demo
                 </a>
