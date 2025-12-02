@@ -9,7 +9,7 @@ const Hero = () => {
     await loadFull(engine);
   }, []);
   const resumeUrl =
-    "https://drive.google.com/file/d/1NwU0UJWZFRzDIm5oufY4eF2p-zWsMtmc/view?usp=sharing";
+    "https://drive.google.com/uc?export=download&id=1MK7Xm5MJCMafXVCQAHOW6Qoue_KhEsRu";
 
   return (
     <section
@@ -84,6 +84,7 @@ const Hero = () => {
             </motion.a>
             <motion.a
               href={resumeUrl}
+              download="Varun_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-transparent border-2 border-cyan-400 text-cyan-400 px-6 py-3 rounded-full font-semibold shadow-md hover:bg-cyan-400 hover:text-gray-950 transition-colors duration-300"
