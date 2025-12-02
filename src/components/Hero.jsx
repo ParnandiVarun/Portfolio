@@ -9,18 +9,16 @@ const Hero = () => {
     await loadFull(engine);
   }, []);
 
-  // DIRECT DOWNLOAD URL
   const resumeDownload =
     "https://drive.google.com/uc?export=download&id=1MK7Xm5MJCMafXVCQAHOW6Qoue_KhEsRu";
 
-  // GOOGLE DRIVE PREVIEW URL
   const resumePreview =
     "https://drive.google.com/file/d/1MK7Xm5MJCMafXVCQAHOW6Qoue_KhEsRu/view?usp=sharing";
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center px-4 bg-gray-950 overflow-hidden"
+      className="relative min-h-screen  flex items-center justify-center px-4 bg-gray-950 overflow-hidden"
     >
       <Particles
         id="tsparticles"
@@ -148,7 +146,7 @@ const Hero = () => {
 
         {/* RIGHT SIDE IMAGE */}
         <motion.div
-          className="flex-1 flex justify-center items-center"
+          className="flex-1 flex justify-center items-center ml-[5rem]"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
