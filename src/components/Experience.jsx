@@ -6,14 +6,13 @@ import { motion } from "framer-motion";
 const Experience = () => {
   const experiences = [
     {
-      role: "Database Designer Intern",
-      company: "Amigo Inno Apps Pvt Ltd",
-      date: "Jan 2023 - March 2023",
+      role: "Frontend Developer Intern",
+      company: "Amigo Innoapps Pvt Ltd",
+      date: "January 2023 - March 2023",
       description: [
-        "Worked as part of a team of four to develop an Online Tourism Guide web application during the internship.",
-        "Designed and managed the database architecture using MySQL and Python for efficient data storage and retrieval.",
-        "Collaborated with teammates to ensure smooth integration between frontend and backend components.",
-        "Optimized database queries and improved performance for faster data access and scalability.",
+        "Developed the complete frontend of the Online Tourism Guide using HTML, CSS, Bootstrap, and JavaScript.",
+        "Built responsive and visually appealing UI for pages such as Home, Packages, Contact, Login, and Place Details.",
+        "Collaborated with the backend team to ensure seamless integration and improve overall performance and code quality.",
       ],
     },
   ];

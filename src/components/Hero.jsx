@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
@@ -8,8 +8,14 @@ const Hero = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
   }, []);
-  const resumeUrl =
+
+  // DIRECT DOWNLOAD URL
+  const resumeDownload =
     "https://drive.google.com/uc?export=download&id=1MK7Xm5MJCMafXVCQAHOW6Qoue_KhEsRu";
+
+  // GOOGLE DRIVE PREVIEW URL
+  const resumePreview =
+    "https://drive.google.com/file/d/1MK7Xm5MJCMafXVCQAHOW6Qoue_KhEsRu/view?usp=sharing";
 
   return (
     <section
@@ -48,7 +54,7 @@ const Hero = () => {
       />
 
       <div className="relative z-10 w-full max-w-6xl flex flex-col md:flex-row items-center justify-between gap-12">
-        {/* Left Side: Text */}
+        {/* LEFT SIDE */}
         <div className="flex-1 text-left">
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
@@ -68,6 +74,7 @@ const Hero = () => {
             Full Stack MERN Developer 🚀
           </motion.p>
 
+          {/* BUTTONS */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4"
             initial={{ opacity: 0, y: 50 }}
@@ -82,8 +89,9 @@ const Hero = () => {
             >
               View My Work
             </motion.a>
+
             <motion.a
-              href={resumeUrl}
+              href={resumeDownload}
               download="Varun_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -95,8 +103,25 @@ const Hero = () => {
             </motion.a>
           </motion.div>
 
+          {/* SMALL VIEW RESUME BUTTON WITH ANIMATION */}
           <motion.div
-            className="flex gap-6 mt-10 justify-start text-white text-3xl"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+          >
+            <a
+              href={resumePreview}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block ml-2 mt-6 px-4 py-2 bg-gray-800 text-gray-200 text-sm rounded-full font-semibold hover:bg-gray-700 hover:text-cyan-400 transition-transform duration-200 hover:scale-105"
+            >
+              View Resume
+            </a>
+          </motion.div>
+
+          {/* SOCIAL ICONS */}
+          <motion.div
+            className="flex gap-6 ml-4 mt-10 justify-start text-white text-3xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.5 }}
@@ -109,6 +134,7 @@ const Hero = () => {
             >
               <FaGithub />
             </a>
+
             <a
               href="https://www.linkedin.com/in/varun-parnandi-b75845332/"
               target="_blank"
@@ -120,7 +146,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Right Side: Profile Picture */}
+        {/* RIGHT SIDE IMAGE */}
         <motion.div
           className="flex-1 flex justify-center items-center"
           initial={{ opacity: 0, scale: 0.5 }}
@@ -142,4 +168,3 @@ const Hero = () => {
 };
 
 export default Hero;
-// ...existing code...
