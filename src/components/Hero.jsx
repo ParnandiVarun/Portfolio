@@ -10,10 +10,10 @@ const Hero = () => {
   }, []);
 
   const resumeDownload =
-    "https://drive.google.com/uc?export=download&id=1MK7Xm5MJCMafXVCQAHOW6Qoue_KhEsRu";
+    "https://drive.google.com/uc?export=download&id=1vBI24XN1bLt2oRMgV1ZNr1vkJNhr0GwV";
 
   const resumePreview =
-    "https://drive.google.com/file/d/1MK7Xm5MJCMafXVCQAHOW6Qoue_KhEsRu/view?usp=sharing";
+    "https://drive.google.com/file/d/1vBI24XN1bLt2oRMgV1ZNr1vkJNhr0GwV/view?usp=sharing";
 
   return (
     <section
