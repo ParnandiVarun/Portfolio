@@ -9,11 +9,28 @@ const Hero = () => {
     await loadFull(engine);
   }, []);
 
-  const resumeDownload =
-    "https://drive.google.com/uc?export=download&id=1vBI24XN1bLt2oRMgV1ZNr1vkJNhr0GwV";
-
+  // 🔹 UPDATED RESUME LINKS
   const resumePreview =
-    "https://drive.google.com/file/d/1vBI24XN1bLt2oRMgV1ZNr1vkJNhr0GwV/view?usp=sharing";
+    "https://drive.google.com/file/d/1uWp4yoq74PtR_qv3UuPHVVk0ldyELJ_Z/view?usp=sharing";
+
+  const resumeDownload =
+    "https://drive.google.com/uc?export=download&id=1uWp4yoq74PtR_qv3UuPHVVk0ldyELJ_Z";
+
+  // 🔹 HANDLER: OPEN + DOWNLOAD
+  const handleResumeClick = (e) => {
+    e.preventDefault();
+
+    // Open in new tab
+    window.open(resumePreview, "_blank");
+
+    // Trigger download
+    const link = document.createElement("a");
+    link.href = resumeDownload;
+    link.download = "Varun_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <section
@@ -88,33 +105,16 @@ const Hero = () => {
               View My Work
             </motion.a>
 
+            {/* 🔹 UPDATED DOWNLOAD RESUME BUTTON */}
             <motion.a
-              href={resumeDownload}
-              download="Varun_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
+              onClick={handleResumeClick}
               className="bg-transparent border-2 border-cyan-400 text-cyan-400 px-6 py-3 rounded-full font-semibold shadow-md hover:bg-cyan-400 hover:text-gray-950 transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Download Resume
             </motion.a>
-          </motion.div>
-
-          {/* SMALL VIEW RESUME BUTTON WITH ANIMATION */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-          >
-            <a
-              href={resumePreview}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block ml-2 mt-6 px-4 py-2 bg-gray-800 text-gray-200 text-sm rounded-full font-semibold hover:bg-gray-700 hover:text-cyan-400 transition-transform duration-200 hover:scale-105"
-            >
-              View Resume
-            </a>
           </motion.div>
 
           {/* SOCIAL ICONS */}
